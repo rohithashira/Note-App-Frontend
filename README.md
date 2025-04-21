@@ -15,7 +15,6 @@ A full-stack notes application with authentication, rate limiting, and Redux-bas
 
 ## Project Structure
 
-```
 simple-notes-app/
 ├── backend/           # Node.js + Express backend
 │   ├── src/
@@ -26,6 +25,16 @@ simple-notes-app/
 │   │   ├── routes/    # API routes
 │   │   └── server.js  # Entry point
 │   └── package.json
+│
+└── frontend/         # React frontend
+    ├── src/
+    │   ├── components/ # React components
+    │   ├── features/   # Redux slices
+    │   ├── pages/      # Page components
+    │   ├── services/   # API services
+    │   └── App.tsx     # Root component
+    └── package.json
+```
 
 ## Setup Instructions
 
