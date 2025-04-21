@@ -1,54 +1,82 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+=======
+# Note-App-Frontend
+# Simple Notes App
 
-Currently, two official plugins are available:
+A full-stack notes application with authentication, rate limiting, and Redux-based state management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- JWT-based authentication
+- Create, read, update, and delete notes
+- Rate limiting (10 requests per minute)
+- Redux state management
+- Modern UI with Tailwind CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Structure
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
 ```
+simple-notes-app/
+├── backend/           # Node.js + Express backend
+│   ├── src/
+│   │   ├── config/   # Configuration files
+│   │   ├── controllers/ # Route controllers
+│   │   ├── middleware/  # Custom middleware
+│   │   ├── models/    # Database models
+│   │   ├── routes/    # API routes
+│   │   └── server.js  # Entry point
+│   └── package.json
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Setup Instructions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Frontend Setup
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file with:
+   ```
+   VITE_API_URL=http://localhost:5000
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## API Endpoints
+
+### Authentication
+- POST /api/auth/signup - Register a new user
+- POST /api/auth/login - Login user
+
+### Notes
+- GET /api/notes - Get all notes
+- POST /api/notes - Create a new note
+- PUT /api/notes/:id - Update a note
+- DELETE /api/notes/:id - Delete a note
+
+## Technologies Used
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT for authentication
+- bcrypt for password hashing
+- express-rate-limit for rate limiting
+
+### Frontend
+- React
+- Redux Toolkit
+- Tailwind CSS
+- TypeScript
+- React Router 
+>>>>>>> b7ffa98a25dc81ff47e57cb431ea9c452a800332
